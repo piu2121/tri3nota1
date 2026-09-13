@@ -45,9 +45,9 @@ INSERT INTO livros ( id_livro,titulo, disponivel, id_autor) VALUES
 (66,'A Hora da Estrela', 1977, 'Rocco', TRUE, 44);
 
 INSERT INTO usuarios (id_usuario,nome, telefone,data_cadastro) VALUES
-(111,'Ana Silva','11999990001'),
-(222,'Bruno Souza','11999990002'),
-(333,'Carla Mendes', '11999990003');
+(111,'Ana Silva','11999990001', '2025-03-15'),
+(222,'Bruno Souza','11999990002', '2025-03-15'),
+(333,'Carla Mendes', '11999990003', '2025-03-15');
 
 INSERT INTO emprestimos 
 (id_livro, id_usuario, data_emprestimo,  data_devolucao) 
@@ -57,26 +57,26 @@ VALUES
 (5, 1, '2025-03-10', '2025-03-24');
 
 
-UPDATE livros SET disponivel = FALSE WHERE id_livro IN (1, 5);
+UPDATE livros SET disponivel = FALSE WHERE id_livro IN ;
 
--- Livro 3 foi devolvido
 UPDATE livros SET disponivel = TRUE WHERE id_livro = 3;
 
 SELECT * FROM livros;
 
-SELECT l.titulo, a.nome AS autor
-FROM livros l
-JOIN autores a ON a.id_autor = l.id_autor
-ORDER BY l.titulo;
+SELECT titulo, nome 
+FROM livros 
+JOIN autores  ON autores.id_autor = livros.id_autor
+ORDER BY livros.titulo;
 
-SELECT l.titulo, a.nome AS autor
-FROM livros l
-JOIN autores a ON a.id_autor = l.id_autor
-WHERE a.nome ILIKE '%Machado de Assis%';
+SELECT livros.titulo, autores.nome 
+FROM livros 
+JOIN autores  ON autores.id_autor = livros.id_autor
+WHERE autores.nome LIKE '%Machado de Assis%';
 
 SELECT id_livro, titulo
 FROM livros
 ORDER BY titulo ASC;
+
 SELECT id_livro, titulo, disponivel
 FROM livros
 WHERE disponivel = TRUE
@@ -103,7 +103,9 @@ WHERE id_livro = (
 );
 
 DELETE FROM usuarios
-WHERE id_usuario = 3;-- Se o usuário tiver empréstimos, o DELETE direto vai falhar por causa da chave estrangeira. Nesse caso, exclua primeiro os empréstimos:
+WHERE id_usuario = 3;
+-- Se o usuário tiver empréstimos, o DELETE direto vai falhar por causa da chave estrangeira.Caso ele tenha vai dar um erro por isso,
+--se deve excluit primeiro os empréstimos dele:
 
 DELETE FROM emprestimos
 WHERE id_usuario = 3;
@@ -113,6 +115,8 @@ WHERE id_usuario = 3;
 
 DELETE FROM livros
 WHERE id_livro = 6;
+-- Se o livro tiver empréstimos, o DELETE direto vai falhar por causa da chave estrangeira.Caso ele tenha vai dar um erro por isso,
+--se deve excluit primeiro os empréstimos dele:
 
 DELETE FROM emprestimos
 WHERE id_livro = 6;
@@ -120,11 +124,11 @@ WHERE id_livro = 6;
 DELETE FROM livros
 WHERE id_livro = 6;
 
-SELECT u.nome AS usuario, l.titulo AS livro
-FROM emprestimos e
-JOIN usuarios u ON u.id_usuario = e.id_usuario
-JOIN livros l ON l.id_livro = e.id_livro
-ORDER BY u.nome, l.titulo;
+SELECT uuarios.nome  usuario, livros.titulo 
+FROM emprestimos
+JOIN usuarios ON usuarios.id_usuario = emprestimos.id_usuario
+JOIN livros  ON livros.id_livro = emprestimos.id_livro
+ORDER BY usuarios.nome, livros.titulo;
 
 SELECT 
     e.id_emprestimo,
