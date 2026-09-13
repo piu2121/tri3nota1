@@ -6,7 +6,7 @@ CREATE TABLE autores (
 CREATE TABLE usuarios (
     id_usuario INTEGER PRIMARY KEY,
     nome VARCHAR(120) NOT NULL,
-    telefone VARCHAR(20)
+    telefone VARCHAR(20),
     data_cadastro DATE DEFAULT CURRENT_DATE
 );
 
