@@ -7,13 +7,13 @@ CREATE TABLE usuarios (
     id_usuario INTEGER PRIMARY KEY,
     nome VARCHAR(120) NOT NULL,
     telefone VARCHAR(20),
-    data_cadastro DATE DEFAULT CURRENT_DATE
+    data_cadastro DATE 
 );
 
 CREATE TABLE livros (
     id_livro INTEGER PRIMARY KEY,
     titulo VARCHAR(200) NOT NULL,
-    disponivel BOOLEAN NOT NULL DEFAULT TRUE,
+    disponivel BOOLEAN NOT NULL,
     id_autor INTEGER NOT NULL,
         FOREIGN KEY (id_autor)
         REFERENCES autores(id_autor)
@@ -23,7 +23,7 @@ CREATE TABLE emprestimos (
     id_emprestimo INTEGER PRIMARY KEY,
     id_livro INTEGER NOT NULL,
     id_usuario INTEGER NOT NULL,
-    data_emprestimo DATE NOT NULL  CURRENT_DATE,
+    data_emprestimo DATE NOT NULL  ,
     data_devolucao DATE NOT NULL,
         FOREIGN KEY (id_livro)
         REFERENCES livros(id_livro),
@@ -44,7 +44,7 @@ INSERT INTO livros ( id_livro,titulo, disponivel, id_autor) VALUES
 (55,'Harry Potter e a Pedra Filosofal', 1997, 'Rocco', TRUE, 33),
 (66,'A Hora da Estrela', 1977, 'Rocco', TRUE, 44);
 
-INSERT INTO usuarios (id_usuario,nome, telefone) VALUES
+INSERT INTO usuarios (id_usuario,nome, telefone,data_cadastro) VALUES
 (111,'Ana Silva','11999990001'),
 (222,'Bruno Souza','11999990002'),
 (333,'Carla Mendes', '11999990003');
