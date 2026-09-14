@@ -57,11 +57,6 @@ VALUES
 (2,33, 222, '2025-03-05', '2025-03-19'),
 (3,55, 111, '2025-03-10', '2025-03-24');
 
-
-UPDATE livros SET disponivel = FALSE WHERE id_livro =22 ;
-
-UPDATE livros SET disponivel = TRUE WHERE id_livro = 22;
-
 SELECT * FROM livros;
 
 SELECT titulo, nome 
@@ -82,7 +77,10 @@ SELECT id_livro, titulo, disponivel
 FROM livros
 WHERE disponivel = TRUE
 ORDER BY titulo;
+-- fim da 14)
+ UPDATE livros SET disponivel = FALSE WHERE id_livro =22 ;
 
+UPDATE livros SET disponivel = TRUE WHERE id_livro = 22;
 UPDATE usuarios
 SET nome = 'Ana Paula Silva'
 WHERE id_usuario = 111;
@@ -124,7 +122,8 @@ WHERE id_livro = 66;
 
 DELETE FROM livros
 WHERE id_livro = 66;
-
+--fim 15)
+-- o resto é a 16)
 SELECT usuarios.nome  usuario, livros.titulo 
 FROM emprestimos
 JOIN usuarios ON usuarios.id_usuario = emprestimos.id_usuario
