@@ -1,3 +1,4 @@
+CREATE DATABASE    teste;
 CREATE TABLE autores (
     id_autor INTEGER PRIMARY KEY,
     nome VARCHAR(120) NOT NULL
@@ -30,19 +31,19 @@ CREATE TABLE emprestimos (
         FOREIGN KEY (id_usuario)
         REFERENCES usuarios(id_usuario)
 );
-INSERT INTO autores (id_autor,nome,) VALUES
-(11,'Machado de Assis',),
-(22,'George Orwell',),
-(33,'J. K. Rowling',),
-(44,'Clarice Lispector',);
+INSERT INTO autores (id_autor,nome) VALUES
+(11,'Machado de Assis'),
+(22,'George Orwell'),
+(33,'J. K. Rowling'),
+(44,'Clarice Lispector');
 
 INSERT INTO livros ( id_livro,titulo, disponivel, id_autor) VALUES
-(11,'Dom Casmurro', 1899, 'Companhia das Letras', TRUE, 11),
-(22,'Memórias Póstumas de Brás Cubas', 1881, 'Penguin', TRUE, 11),
-(33,'1984', 1949, 'Companhia das Letras', TRUE, 22),
-(44,'A Revolução dos Bichos', 1945, 'Globo', TRUE, 22),
-(55,'Harry Potter e a Pedra Filosofal', 1997, 'Rocco', TRUE, 33),
-(66,'A Hora da Estrela', 1977, 'Rocco', TRUE, 44);
+(11,'Dom Casmurro', TRUE, 11),
+(22,'Memórias Póstumas de Brás Cubas', TRUE, 11),
+(33,'1984',  TRUE, 22),
+(44,'A Revolução dos Bichos',  TRUE, 22),
+(55,'Harry Potter e a Pedra Filosofal', TRUE, 33),
+(66,'A Hora da Estrela', TRUE, 44);
 
 INSERT INTO usuarios (id_usuario,nome, telefone,data_cadastro) VALUES
 (111,'Ana Silva','11999990001', '2025-03-15'),
@@ -50,16 +51,16 @@ INSERT INTO usuarios (id_usuario,nome, telefone,data_cadastro) VALUES
 (333,'Carla Mendes', '11999990003', '2025-03-15');
 
 INSERT INTO emprestimos 
-(id_livro, id_usuario, data_emprestimo,  data_devolucao) 
+(id_emprestimo,id_livro, id_usuario, data_emprestimo,  data_devolucao) 
 VALUES
-(1, 1, '2025-03-01', '2025-03-15'),
-(3, 2, '2025-03-05', '2025-03-19'),
-(5, 1, '2025-03-10', '2025-03-24');
+(1,11, 111, '2025-03-01', '2025-03-15'),
+(2,33, 222, '2025-03-05', '2025-03-19'),
+(3,55, 111, '2025-03-10', '2025-03-24');
 
 
-UPDATE livros SET disponivel = FALSE WHERE id_livro IN ;
+UPDATE livros SET disponivel = FALSE WHERE id_livro =22 ;
 
-UPDATE livros SET disponivel = TRUE WHERE id_livro = 3;
+UPDATE livros SET disponivel = TRUE WHERE id_livro = 22;
 
 SELECT * FROM livros;
 
@@ -84,11 +85,11 @@ ORDER BY titulo;
 
 UPDATE usuarios
 SET nome = 'Ana Paula Silva'
-WHERE id_usuario = 1;
+WHERE id_usuario = 111;
 
 UPDATE livros
 SET disponivel = FALSE
-WHERE id_livro = 2;
+WHERE id_livro = 22;
 
 UPDATE emprestimos
 SET data_devolucao = '2025-03-20'
@@ -103,28 +104,28 @@ WHERE id_livro = (
 );
 
 DELETE FROM usuarios
-WHERE id_usuario = 3;
+WHERE id_usuario = 333;
 -- Se o usuário tiver empréstimos, o DELETE direto vai falhar por causa da chave estrangeira.Caso ele tenha vai dar um erro por isso,
 --se deve excluit primeiro os empréstimos dele:
 
 DELETE FROM emprestimos
-WHERE id_usuario = 3;
+WHERE id_usuario = 333;
 
 DELETE FROM usuarios
-WHERE id_usuario = 3;
+WHERE id_usuario = 333;
 
 DELETE FROM livros
-WHERE id_livro = 6;
+WHERE id_livro = 66;
 -- Se o livro tiver empréstimos, o DELETE direto vai falhar por causa da chave estrangeira.Caso ele tenha vai dar um erro por isso,
 --se deve excluit primeiro os empréstimos dele:
 
 DELETE FROM emprestimos
-WHERE id_livro = 6;
+WHERE id_livro = 66;
 
 DELETE FROM livros
-WHERE id_livro = 6;
+WHERE id_livro = 66;
 
-SELECT uuarios.nome  usuario, livros.titulo 
+SELECT usuarios.nome  usuario, livros.titulo 
 FROM emprestimos
 JOIN usuarios ON usuarios.id_usuario = emprestimos.id_usuario
 JOIN livros  ON livros.id_livro = emprestimos.id_livro
@@ -135,7 +136,6 @@ SELECT
     u.nome AS usuario,
     l.titulo AS livro,
     e.data_emprestimo,
-    e.data_prevista_devolucao,
     e.data_devolucao
 FROM emprestimos e
 JOIN usuarios u ON u.id_usuario = e.id_usuario
@@ -146,8 +146,7 @@ SELECT
     e.id_emprestimo,
     u.nome AS usuario,
     l.titulo AS livro,
-    e.data_emprestimo,
-    e.data_prevista_devolucao
+    e.data_emprestimo
 FROM emprestimos e
 JOIN usuarios u ON u.id_usuario = e.id_usuario
 JOIN livros l ON l.id_livro = e.id_livro
@@ -158,8 +157,7 @@ SELECT
     e.id_emprestimo,
     u.nome AS usuario,
     l.titulo AS livro,
-    e.data_emprestimo,
-    e.data_prevista_devolucao
+    e.data_emprestimo
 FROM emprestimos e
 JOIN usuarios u ON u.id_usuario = e.id_usuario
 JOIN livros l ON l.id_livro = e.id_livro
