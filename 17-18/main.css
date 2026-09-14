@@ -1,3 +1,103 @@
-:root{
-    --firts_color;
+:root {
+    --um_color: rgb(151, 188, 245);
+    --dois_color: rgb(71, 65, 65);
+    --tres_color: rgb(140, 83, 247);
+    --quatro_color: rgb(221, 85, 85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    gap: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    width: 100%;
+}
+
+#button-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#form-button {
+    height: 25%;
+    width: 20%;
+}
+
+h1,
+h2,
+h3 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4vh;
+}
+
+section {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+form {
+    margin-top: 4vh;
+    display: grid;
+    grid-template-rows: auto;
+    justify-self: center;
+    border: solid black 1px;
+    width: 40%;
+    height: 60vh;
+}
+
+form>section>input {
+    border: solid black 1px;
+    width: 60%;
+    height: 60%;
+}
+
+form>section {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+#div-tituloPrincipal {
+    width: 100%;
+}
+
+details {
+    margin-left: 10%;
+}
+
+main {
+    background-color: var(--um_color);
+    display: grid;
+    justify-self: center;
+    width: 80%;
+}
+
+header,
+footer {
+    background-color: var(--dois_color);
+    width: 100%;
+    height: 10vh;
+}
+
+table {
+    justify-self: center;
+    height: 20vh;
+    width: 50%;
+    border: solid 1px black;
+}
+
+td,
+th {
+    border: solid 1px black;
+}
+
+footer {
+    margin-top: 10vh;
 }
