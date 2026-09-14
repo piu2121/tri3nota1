@@ -1,30 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>página do curso de informatica</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-<header></header>
-<nav>
-    <ul><li><a href="#tabela">materias do curso</a></li></ul>
-</nav>
-<aside></aside>
-    <h1>Olá,bem vindo ao site do curso de informatica!</h1>
-    <p>Comece a desenvolver por aqui...</p>
-<main></main>
-<table id="tabela">
-    <tr> <th>ano 1</td>
-    <th>ano2</td>
-    <th>ano3</td>
-    </tr>
-    <tr> <td>calculo I</td>
-    <td>calculo II</td>
-    <td>calculo II</td>
-    </tr>
-</table>
-<form></form>
-<footer></footer>
+    <header></header>
+    <div id="div-tituloPrincipal">
+        <h1>Olá,bem vindo ao site do curso de informatica!</h1>
+        <p>Conheça mais sobre o curso</p>
+    </div>
+    <details>
+        <summary>tópicos dessa página</summary>
+        <nav>
+            <ul>
+                <li><a href="#infor"> Resumo do curso</a></li>
+                <li><a href="#tabela"> tabela das matérias do curso</a></li>
+                <li><a href="#prog"> matéria de Programação</a></li>
+                <li><a href="#hard"> matérias de hardware</a></li>
+                <li><a href="#os"> matérias de OS</a></li>
+                <li><a href="#redes"> matérias de Redes</a></li>
+                <li><a href="#calculo"> matérias de calculo</a></li>
+            </ul>
+        </nav>
+    </details>
+    <aside></aside>
+    <main>
+        <div>
+            <section>
+            <h2 id="infor">um pouco do curso</h2>
+            <div id="imagem"><img src="Imagens/informatica.jpg" alt=""></div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam, beatae ea esse temporibus
+                    asperiores corrupti possimus doloribus veniam natus maxime accusamus ratione rem laudantium repellat
+                    deserunt praesentium, in mollitia?</p>
+            </div>
+        </section>
+        </div>
+        <section>
+            <h2 id="tabela">tabela das materias do curso oferecido</h2>
+            <table>
+                <tr>
+                    <th>ano 1</td>
+                    <th>ano2</td>
+                    <th>ano3</td>
+                </tr>
+                <tr>
+                    <td>calculo I</td>
+                    <td>calculo II</td>
+                    <td>calculo III</td>
+                </tr>
+                <tr>
+                    <td>sistemas operacionais I</td>
+                    <td>sistemas operacionais II</td>
+                    <td>sistemas operacionais III</td>
+                </tr>
+                <tr>
+                    <td>hardware I</td>
+                    <td>hardware II</td>
+                    <td>hardware III</td>
+                </tr>
+                <tr>
+                    <td>Redes I</td>
+                    <td>Redes II</td>
+                    <td>Redes III</td>
+                </tr>
+                <tr>
+                    <td>Programação I</td>
+                    <td>Programação II</td>
+                    <td>Programação III</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2 id="prog">matéria de Programação</h2>
+            <div id="imagem"><img src="Imagens/rust.png" alt=""></div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam, beatae ea esse temporibus
+                    asperiores corrupti possimus doloribus veniam natus maxime accusamus ratione rem laudantium repellat
+                    deserunt praesentium, in mollitia?</p>
+            </div>
+        </section>
+        <section>
+            <h2 id="hard">matéria de hardware</h2>
+            <div id="imagem"><img src="Imagens/placa mae.jpg" alt=""></div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam, beatae ea esse temporibus
+                    asperiores corrupti possimus doloribus veniam natus maxime accusamus ratione rem laudantium repellat
+                    deserunt praesentium, in mollitia?</p>
+            </div>
+        </section>
+        <section>
+            <h2 id="os">matéria de OS</h2>
+            <div id="imagem"><img src="Imagens/os.jpg" alt=""></div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam, beatae ea esse temporibus
+                    asperiores corrupti possimus doloribus veniam natus maxime accusamus ratione rem laudantium repellat
+                    deserunt praesentium, in mollitia?</p>
+            </div>
+        </section>
+        <section>
+            <h2 id="redes">matéria de Redes</h2>
+            <div id="imagem"><img src="Imagens/redes.jpg" alt=""></div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam, beatae ea esse temporibus
+                    asperiores corrupti possimus doloribus veniam natus maxime accusamus ratione rem laudantium repellat
+                    deserunt praesentium, in mollitia?</p>
+            </div>
+        </section>
+        <section>
+            <h2 id="calculo">matéria de calculo</h2>
+            <div id="imagem"><img src="Imagens/calculo.jpg" alt="oi"></div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam, beatae ea esse temporibus
+                    asperiores corrupti possimus doloribus veniam natus maxime accusamus ratione rem laudantium repellat
+                    deserunt praesentium, in mollitia?</p>
+            </div>
+        </section>
+    </main>
+    <form>
+        <section><label for="nome">nome</label>
+            <input type="text" placeholder="digite seu nome">
+        </section>
+        <section><label for="nome">email</label>
+            <input type="text" placeholder="digite seu email">
+        </section>
+    </form>
+    <footer></footer>
 </body>
+
 </html>
