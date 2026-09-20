@@ -3,6 +3,7 @@
     --dois_color: rgb(71, 65, 65);
     --tres_color: rgb(140, 83, 247);
     --quatro_color: rgb(221, 85, 85);
+    --cinco_color: rgb(119, 246, 138);
 }
 
 * {
@@ -16,6 +17,11 @@
 body {
     display: grid;
     width: 100%;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--cinco_color);
 }
 
 #button-section {
@@ -32,7 +38,7 @@ body {
 h1,
 h2,
 h3 {
-    width: 50%;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4vh;
@@ -87,6 +93,7 @@ footer {
 }
 
 table {
+    background-color: white;
     justify-self: center;
     height: 20vh;
     width: 50%;
