@@ -85,6 +85,17 @@ main {
     width: 80%;
 }
 
+main>section,
+main>div {
+    display: block
+}
+
+main>div,
+main>div>section {
+    height: fit-content;
+    width: 100%
+}
+
 header,
 footer {
     background-color: var(--dois_color);
@@ -107,4 +118,28 @@ th {
 
 footer {
     margin-top: 10vh;
+}
+
+#imagem {
+    width: 100%;
+}
+
+#imagem>img {
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    form {
+        margin-top: 4vh;
+        display: grid;
+        grid-template-rows: auto;
+        justify-self: center;
+        border: solid black 1px;
+        width: 80%;
+        height: 60vh;
+    }
+
+    main {
+        width: 95%;
+    }
 }
