@@ -26,6 +26,10 @@ footer {
     height: 12vh;
     background-color: var(--a);
 }
+header{
+    display: flex;
+    justify-content: center;
+    }
 
 h1 {
     justify-self: center;
@@ -106,4 +110,4 @@ main {
     height: 100%;
     display: grid;
     grid-template-rows: 60% 40%;
-}
+} 

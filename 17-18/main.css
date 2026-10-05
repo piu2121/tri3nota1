@@ -49,25 +49,81 @@ section {
     margin-bottom: 5vh;
 }
 
-form {
-    margin-top: 4vh;
-    display: grid;
-    grid-template-rows: auto;
-    justify-self: center;
-    border: solid black 1px;
-    width: 40%;
-    height: 60vh;
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+  font-family: Arial, sans-serif;
 }
 
-form>section>input {
-    border: solid black 1px;
-    width: 60%;
-    height: 60%;
+.formulario {
+  width: min(100% - 32px, 420px);
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(31, 41, 55, 0.12);
 }
 
-form>section {
-    display: grid;
-    grid-template-rows: auto;
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.campo label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  color: #111827;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input::placeholder {
+  color: #9ca3af;
+}
+
+.campo input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+#button-section {
+  margin-top: 26px;
+}
+
+#form-button {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#form-button:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+#form-button:active {
+  transform: translateY(0);
 }
 
 #div-tituloPrincipal {
@@ -129,15 +185,7 @@ footer {
 }
 
 @media (max-width: 600px) {
-    form {
-        margin-top: 4vh;
-        display: grid;
-        grid-template-rows: auto;
-        justify-self: center;
-        border: solid black 1px;
-        width: 80%;
-        height: 60vh;
-    }
+   
 
     main {
         width: 95%;

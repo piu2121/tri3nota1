@@ -123,18 +123,23 @@
             </div>
         </section>
     </main>
-    <form>
-        <section><label for="nome">nome</label>
-            <input type="text" placeholder="digite seu nome">
-        </section>
-        <section><label for="nome">email</label>
-            <input type="text" placeholder="digite seu email">
-        </section>
-        <section id="button-section">
-            <button id="form-button" type="submit">adadad</button>
-        </section>
-    </form>
-    <footer></footer>
-</body>
+    <form class="formulario">
+  <section class="campo">
+    <label for="nome">Nome</label>
+    <input id="nome" name="nome" type="text" placeholder="Digite seu nome">
+  </section>
 
+  <section class="campo">
+    <label for="email">E-mail</label>
+    <input id="email" name="email" type="email" placeholder="Digite seu e-mail">
+  </section>
+
+  <section id="button-section">
+    <button id="form-button" type="submit">Enviar</button>
+  </section>
+</form>
+
+    <footer></footer>
+    <script src='main.js'></script>
+</body>
 </html>
